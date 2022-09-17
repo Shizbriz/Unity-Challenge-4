@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class EnemyX : MonoBehaviour
 {
-    public int sped = 5;
+    public int sped = 3;
     private Rigidbody enemyRb;
     private GameObject playerGoal;
    
-
-    // Start is called before the first frame update
+      // Start is called before the first frame update
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();

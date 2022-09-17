@@ -14,6 +14,8 @@ public class SpawnManagerX : MonoBehaviour
     public int enemyCount;
     public int waveCount = 1;
 
+   
+
 
     public GameObject player;
     
@@ -26,8 +28,13 @@ public class SpawnManagerX : MonoBehaviour
         if (enemyCount == 0)
         {
             SpawnEnemyWave(waveCount);
-           
+
+            
+
+            
         }
+
+       
 
     }
 
@@ -55,9 +62,18 @@ public class SpawnManagerX : MonoBehaviour
         {
             Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
         }
-
+        
         waveCount++;
-        enemyPrefab.GetComponent<EnemyX>().sped++;
+        
+        if (waveCount == 1)
+        {
+            enemyPrefab.GetComponent<EnemyX>().sped = 3;
+        }
+        else if (waveCount > 1)
+        {
+            enemyPrefab.GetComponent<EnemyX>().sped++;
+        }
+
         ResetPlayerPosition(); // put player back at start
                        
         }
